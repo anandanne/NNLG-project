@@ -1,0 +1,93 @@
+Mon 13 Feb 2023 21:44:02 INFO 66 parameters found.
+================================================================================
+
+# General Hyper Parameters: 
+
+gpu_id: 0
+use_gpu: True
+device: cpu
+seed: 2020
+reproducibility: True
+cmd: run_textbox.py --model=BART --dataset=samsum --model_path=facebook/bart-base
+filename: BART-samsum-2023-Feb-13_21-44-01
+saved_dir: saved/
+state: INFO
+wandb: online
+
+
+# Training Hyper Parameters: 
+
+do_train: True
+do_valid: True
+optimizer: adamw
+adafactor_kwargs: {'lr': 0.001, 'scale_parameter': False, 'relative_step': False, 'warmup_init': False}
+optimizer_kwargs: {}
+valid_steps: 1
+valid_strategy: epoch
+stopping_steps: 2
+epochs: 50
+learning_rate: 3e-05
+train_batch_size: 4
+grad_clip: 0.1
+accumulation_steps: 48
+disable_tqdm: False
+resume_training: True
+
+
+# Evaluation Hyper Parameters: 
+
+do_test: True
+lower_evaluation: True
+multiref_strategy: max
+bleu_max_ngrams: 4
+bleu_type: nltk
+smoothing_function: 0
+corpus_bleu: False
+rouge_max_ngrams: 2
+rouge_type: files2rouge
+meteor_type: pycocoevalcap
+chrf_type: m-popovic
+distinct_max_ngrams: 4
+inter_distinct: True
+unique_max_ngrams: 4
+self_bleu_max_ngrams: 4
+tgt_lang: en
+metrics: ['rouge']
+eval_batch_size: 16
+corpus_meteor: True
+
+
+# Model Hyper Parameters: 
+
+model: BART
+model_name: bart
+model_path: facebook/bart-base
+config_kwargs: {}
+tokenizer_kwargs: {'use_fast': True}
+generation_kwargs: {'num_beams': 5, 'no_repeat_ngram_size': 3, 'early_stopping': True}
+efficient_kwargs: {}
+efficient_methods: []
+efficient_unfreeze_model: False
+label_smoothing: 0.1
+
+
+# Dataset Hyper Parameters: 
+
+dataset: samsum
+data_path: dataset/samsum
+tgt_lang: en
+src_len: 1024
+tgt_len: 128
+truncate: tail
+prefix_prompt: Summarize: 
+metrics_for_best_model: ['rouge-1', 'rouge-2', 'rouge-l']
+
+[33m
+# Unrecognized Hyper Parameters: 
+
+tokenizer_add_tokens: []
+load_type: from_pretrained
+find_unused_parameters: False
+[39m
+================================================================================
+Mon 13 Feb 2023 21:44:08 INFO Pretrain type: pretrain disabled

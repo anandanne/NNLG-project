@@ -1,0 +1,25 @@
+2023-02-14 03:16:58,790 INFO    MainThread:53716 [wandb_setup.py:_flush():68] Configure stats pid to 53716
+2023-02-14 03:16:58,790 INFO    MainThread:53716 [wandb_setup.py:_flush():68] Loading settings from /home/sourabh/.config/wandb/settings
+2023-02-14 03:16:58,790 INFO    MainThread:53716 [wandb_setup.py:_flush():68] Loading settings from /home/sourabh/Desktop/Study/Semester 4/NNLG/Project/TextBox/wandb/settings
+2023-02-14 03:16:58,790 INFO    MainThread:53716 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-02-14 03:16:58,791 INFO    MainThread:53716 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'run_textbox.py', 'program': 'run_textbox.py'}
+2023-02-14 03:16:58,791 INFO    MainThread:53716 [wandb_setup.py:_flush():68] Applying login settings: {'api_key': '***REDACTED***'}
+2023-02-14 03:16:58,791 INFO    MainThread:53716 [wandb_init.py:_log_setup():492] Logging user logs to saved/MVP-roc-2023-Feb-14_03-14-23/wandb/run-20230214_031658-dj2onx1p/logs/debug.log
+2023-02-14 03:16:58,791 INFO    MainThread:53716 [wandb_init.py:_log_setup():493] Logging internal logs to saved/MVP-roc-2023-Feb-14_03-14-23/wandb/run-20230214_031658-dj2onx1p/logs/debug-internal.log
+2023-02-14 03:16:58,792 INFO    MainThread:53716 [wandb_init.py:init():532] calling init triggers
+2023-02-14 03:16:58,802 INFO    MainThread:53716 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {'gpu_id': 0, 'use_gpu': True, 'seed': 2020, 'state': 'INFO', 'reproducibility': True, 'data_path': 'dataset/roc', 'wandb': 'online', 'epochs': 50, 'train_batch_size': 48, 'optimizer': 'adamw', 'learning_rate': 3e-05, 'valid_strategy': 'epoch', 'valid_steps': 1, 'stopping_steps': 2, 'grad_clip': 0.1, 'optimizer_kwargs': {}, 'accumulation_steps': 4, 'adafactor_kwargs': {'lr': 0.001, 'scale_parameter': False, 'relative_step': False, 'warmup_init': False}, 'find_unused_parameters': False, 'metrics': ['bleu', 'distinct'], 'eval_batch_size': 32, 'config_kwargs': {}, 'tokenizer_kwargs': {'use_fast': True}, 'tokenizer_add_tokens': [], 'generation_kwargs': {'num_beams': 1, 'do_sample': True, 'top_p': 0.9, 'temperature': 0.7}, 'efficient_methods': [], 'efficient_kwargs': {}, 'efficient_unfreeze_model': False, 'label_smoothing': 0.1, 'lower_evaluation': True, 'multiref_strategy': 'max', 'bleu_max_ngrams': 4, 'bleu_type': 'nltk', 'smoothing_function': 0, 'corpus_bleu': True, 'rouge_max_ngrams': 2, 'rouge_type': 'files2rouge', 'meteor_type': 'pycocoevalcap', 'corpus_meteor': True, 'chrf_type': 'm-popovic', 'distinct_max_ngrams': 4, 'inter_distinct': True, 'unique_max_ngrams': 4, 'self_bleu_max_ngrams': 4, 'tgt_lang': 'en', 'truncate': 'tail', 'src_len': 32, 'tgt_len': 128, 'metrics_for_best_model': ['bleu-1', 'bleu-2'], 'prefix_prompt': 'Given the story title: ', 'model': 'MVP', 'dataset': 'roc', 'model_path': 'RUCAIBox/mvp-multi-task', 'lightweight_tuning': True, 'model_name': 'mvp', 'cmd': 'run_textbox.py --model=MVP --dataset=roc --model_path=RUCAIBox/mvp-multi-task --lightweight_tuning=True', 'filename': 'MVP-roc-2023-Feb-14_03-14-23', 'saved_dir': 'saved/', '_hyper_tuning': [], 'do_train': True, 'do_valid': True, 'do_test': True, 'disable_tqdm': False, 'resume_training': True, 'load_type': 'from_pretrained', '_is_local_main_process': True, 'device': device(type='cpu')}
+2023-02-14 03:16:58,803 INFO    MainThread:53716 [wandb_init.py:init():588] starting backend
+2023-02-14 03:16:58,803 INFO    MainThread:53716 [wandb_init.py:init():592] setting up manager
+2023-02-14 03:16:58,811 INFO    MainThread:53716 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-02-14 03:16:58,820 INFO    MainThread:53716 [wandb_init.py:init():599] backend started and connected
+2023-02-14 03:16:58,840 INFO    MainThread:53716 [wandb_init.py:init():687] updated telemetry
+2023-02-14 03:16:59,058 INFO    MainThread:53716 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2023-02-14 03:17:00,894 INFO    MainThread:53716 [wandb_run.py:_on_init():2134] communicating current version
+2023-02-14 03:17:01,209 INFO    MainThread:53716 [wandb_run.py:_on_init():2143] got version response 
+2023-02-14 03:17:01,209 INFO    MainThread:53716 [wandb_init.py:init():775] starting run threads in backend
+2023-02-14 03:17:07,853 INFO    MainThread:53716 [wandb_run.py:_console_start():2114] atexit reg
+2023-02-14 03:17:07,854 INFO    MainThread:53716 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-02-14 03:17:07,855 INFO    MainThread:53716 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-02-14 03:17:07,855 INFO    MainThread:53716 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-02-14 03:17:07,857 INFO    MainThread:53716 [wandb_init.py:init():817] run started, returning control to user process

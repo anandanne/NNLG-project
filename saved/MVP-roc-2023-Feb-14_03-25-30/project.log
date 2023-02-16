@@ -1,0 +1,541 @@
+Tue 14 Feb 2023 03:25:31 INFO 67 parameters found.
+================================================================================
+
+# General Hyper Parameters: 
+
+gpu_id: 0
+use_gpu: True
+device: cpu
+seed: 2020
+reproducibility: True
+cmd: run_textbox.py --model=MVP --dataset=roc --model_path=RUCAIBox/mvp-story --lightweight_tuning=True
+filename: MVP-roc-2023-Feb-14_03-25-30
+saved_dir: saved/
+state: INFO
+wandb: online
+
+
+# Training Hyper Parameters: 
+
+do_train: True
+do_valid: True
+optimizer: adamw
+adafactor_kwargs: {'lr': 0.001, 'scale_parameter': False, 'relative_step': False, 'warmup_init': False}
+optimizer_kwargs: {}
+valid_steps: 1
+valid_strategy: epoch
+stopping_steps: 2
+epochs: 50
+learning_rate: 3e-05
+train_batch_size: 48
+grad_clip: 0.1
+accumulation_steps: 4
+disable_tqdm: False
+resume_training: True
+
+
+# Evaluation Hyper Parameters: 
+
+do_test: True
+lower_evaluation: True
+multiref_strategy: max
+bleu_max_ngrams: 4
+bleu_type: nltk
+smoothing_function: 0
+corpus_bleu: True
+rouge_max_ngrams: 2
+rouge_type: files2rouge
+meteor_type: pycocoevalcap
+chrf_type: m-popovic
+distinct_max_ngrams: 4
+inter_distinct: True
+unique_max_ngrams: 4
+self_bleu_max_ngrams: 4
+tgt_lang: en
+metrics: ['bleu', 'distinct']
+eval_batch_size: 32
+corpus_meteor: True
+
+
+# Model Hyper Parameters: 
+
+model: MVP
+model_name: mvp
+model_path: RUCAIBox/mvp-story
+config_kwargs: {}
+tokenizer_kwargs: {'use_fast': True}
+generation_kwargs: {'num_beams': 1, 'do_sample': True, 'top_p': 0.9, 'temperature': 0.7}
+efficient_kwargs: {}
+efficient_methods: []
+efficient_unfreeze_model: False
+label_smoothing: 0.1
+
+
+# Dataset Hyper Parameters: 
+
+dataset: roc
+data_path: dataset/roc
+tgt_lang: en
+src_len: 32
+tgt_len: 128
+truncate: tail
+prefix_prompt: Given the story title: 
+metrics_for_best_model: ['bleu-1', 'bleu-2']
+
+[33m
+# Unrecognized Hyper Parameters: 
+
+load_type: from_pretrained
+find_unused_parameters: False
+lightweight_tuning: True
+tokenizer_add_tokens: []
+[39m
+================================================================================
+Tue 14 Feb 2023 03:25:53 INFO Pretrain type: pretrain disabled
+Tue 14 Feb 2023 03:29:27 INFO Pretrained_Models(
+  (model): MvpForConditionalGeneration(
+    (model): MvpModel(
+      (shared): Embedding(50267, 1024, padding_idx=1)
+      (encoder): MvpEncoder(
+        (embed_tokens): Embedding(50267, 1024, padding_idx=1)
+        (embed_positions): MvpLearnedPositionalEmbedding(1026, 1024)
+        (layers): ModuleList(
+          (0): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (1): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (2): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (3): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (4): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (5): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (6): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (7): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (8): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (9): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (10): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (11): MvpEncoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+        (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (self_attn_prompt): MvpPrompt(
+          (dropout): Dropout(p=0.1, inplace=False)
+          (prompt_embedding): Embedding(100, 1024)
+          (prompt_trans): Sequential(
+            (0): Linear(in_features=1024, out_features=800, bias=True)
+            (1): GELU(approximate=none)
+            (2): Linear(in_features=800, out_features=24576, bias=True)
+          )
+        )
+      )
+      (decoder): MvpDecoder(
+        (embed_tokens): Embedding(50267, 1024, padding_idx=1)
+        (embed_positions): MvpLearnedPositionalEmbedding(1026, 1024)
+        (layers): ModuleList(
+          (0): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (1): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (2): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (3): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (4): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (5): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (6): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (7): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (8): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (9): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (10): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+          (11): MvpDecoderLayer(
+            (self_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): MvpAttention(
+              (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+              (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+            (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+            (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+        (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (self_attn_prompt): MvpPrompt(
+          (dropout): Dropout(p=0.1, inplace=False)
+          (prompt_embedding): Embedding(100, 1024)
+          (prompt_trans): Sequential(
+            (0): Linear(in_features=1024, out_features=800, bias=True)
+            (1): GELU(approximate=none)
+            (2): Linear(in_features=800, out_features=24576, bias=True)
+          )
+        )
+        (cross_attn_prompt): MvpPrompt(
+          (dropout): Dropout(p=0.1, inplace=False)
+          (prompt_embedding): Embedding(100, 1024)
+          (prompt_trans): Sequential(
+            (0): Linear(in_features=1024, out_features=800, bias=True)
+            (1): GELU(approximate=none)
+            (2): Linear(in_features=800, out_features=24576, bias=True)
+          )
+        )
+      )
+    )
+    (lm_head): Linear(in_features=1024, out_features=50267, bias=False)
+  )
+)
+Trainable parameters: 61823328
+Tue 14 Feb 2023 03:29:29 INFO ====== Start training ======

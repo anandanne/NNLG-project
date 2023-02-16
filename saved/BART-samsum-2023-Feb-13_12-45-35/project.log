@@ -1,0 +1,315 @@
+Mon 13 Feb 2023 12:45:36 INFO 66 parameters found.
+================================================================================
+
+# General Hyper Parameters: 
+
+gpu_id: 0
+use_gpu: True
+device: cpu
+seed: 2020
+reproducibility: True
+cmd: run_textbox.py --model=BART --dataset=samsum --model_path=facebook/bart-base
+filename: BART-samsum-2023-Feb-13_12-45-35
+saved_dir: saved/
+state: INFO
+wandb: online
+
+
+# Training Hyper Parameters: 
+
+do_train: True
+do_valid: True
+optimizer: adamw
+adafactor_kwargs: {'lr': 0.001, 'scale_parameter': False, 'relative_step': False, 'warmup_init': False}
+optimizer_kwargs: {}
+valid_steps: 1
+valid_strategy: epoch
+stopping_steps: 2
+epochs: 50
+learning_rate: 3e-05
+train_batch_size: 4
+grad_clip: 0.1
+accumulation_steps: 48
+disable_tqdm: False
+resume_training: True
+
+
+# Evaluation Hyper Parameters: 
+
+do_test: True
+lower_evaluation: True
+multiref_strategy: max
+bleu_max_ngrams: 4
+bleu_type: nltk
+smoothing_function: 0
+corpus_bleu: False
+rouge_max_ngrams: 2
+rouge_type: files2rouge
+meteor_type: pycocoevalcap
+chrf_type: m-popovic
+distinct_max_ngrams: 4
+inter_distinct: True
+unique_max_ngrams: 4
+self_bleu_max_ngrams: 4
+tgt_lang: en
+metrics: ['rouge']
+eval_batch_size: 16
+corpus_meteor: True
+
+
+# Model Hyper Parameters: 
+
+model: BART
+model_name: bart
+model_path: facebook/bart-base
+config_kwargs: {}
+tokenizer_kwargs: {'use_fast': True}
+generation_kwargs: {'num_beams': 5, 'no_repeat_ngram_size': 3, 'early_stopping': True}
+efficient_kwargs: {}
+efficient_methods: []
+efficient_unfreeze_model: False
+label_smoothing: 0.1
+
+
+# Dataset Hyper Parameters: 
+
+dataset: samsum
+data_path: dataset/samsum
+tgt_lang: en
+src_len: 1024
+tgt_len: 128
+truncate: tail
+metrics_for_best_model: ['rouge-1', 'rouge-2', 'rouge-l']
+prefix_prompt: Summarize: 
+
+[33m
+# Unrecognized Hyper Parameters: 
+
+tokenizer_add_tokens: []
+find_unused_parameters: False
+load_type: from_pretrained
+[39m
+================================================================================
+Mon 13 Feb 2023 12:45:58 INFO Pretrain type: pretrain disabled
+Mon 13 Feb 2023 12:47:58 INFO Pretrained_Models(
+  (model): BartForConditionalGeneration(
+    (model): BartModel(
+      (shared): Embedding(50265, 768, padding_idx=1)
+      (encoder): BartEncoder(
+        (embed_tokens): Embedding(50265, 768, padding_idx=1)
+        (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+        (layers): ModuleList(
+          (0): BartEncoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (1): BartEncoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (2): BartEncoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (3): BartEncoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (4): BartEncoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (5): BartEncoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (activation_fn): GELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+        (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (decoder): BartDecoder(
+        (embed_tokens): Embedding(50265, 768, padding_idx=1)
+        (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+        (layers): ModuleList(
+          (0): BartDecoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (1): BartDecoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (2): BartDecoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (3): BartDecoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (4): BartDecoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+          (5): BartDecoderLayer(
+            (self_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (activation_fn): GELUActivation()
+            (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (encoder_attn): BartAttention(
+              (k_proj): Linear(in_features=768, out_features=768, bias=True)
+              (v_proj): Linear(in_features=768, out_features=768, bias=True)
+              (q_proj): Linear(in_features=768, out_features=768, bias=True)
+              (out_proj): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+            (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          )
+        )
+        (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (lm_head): Linear(in_features=768, out_features=50265, bias=False)
+  )
+)
+Trainable parameters: 139420416
+Mon 13 Feb 2023 12:47:58 INFO ====== Start training ======

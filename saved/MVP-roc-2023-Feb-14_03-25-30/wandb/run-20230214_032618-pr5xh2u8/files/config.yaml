@@ -1,0 +1,257 @@
+wandb_version: 1
+
+_hyper_tuning:
+  desc: null
+  value: []
+_is_local_main_process:
+  desc: null
+  value: true
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.10
+    framework: huggingface
+    huggingface_version: 4.26.0.dev0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    m:
+    - 1: loss/train
+      6:
+      - 3
+    - 1: loss/valid
+      6:
+      - 3
+    python_version: 3.8.16
+    start_time: 1676325378.311839
+    t:
+      1:
+      - 1
+      - 11
+      - 49
+      - 55
+      - 71
+      2:
+      - 1
+      - 11
+      - 49
+      - 55
+      - 71
+      3:
+      - 7
+      - 13
+      - 16
+      - 23
+      4: 3.8.16
+      5: 0.13.10
+      6: 4.26.0.dev0
+      8:
+      - 5
+accumulation_steps:
+  desc: null
+  value: 4
+adafactor_kwargs:
+  desc: null
+  value:
+    lr: 0.001
+    relative_step: false
+    scale_parameter: false
+    warmup_init: false
+bleu_max_ngrams:
+  desc: null
+  value: 4
+bleu_type:
+  desc: null
+  value: nltk
+chrf_type:
+  desc: null
+  value: m-popovic
+cmd:
+  desc: null
+  value: run_textbox.py --model=MVP --dataset=roc --model_path=RUCAIBox/mvp-story
+    --lightweight_tuning=True
+config_kwargs:
+  desc: null
+  value: {}
+corpus_bleu:
+  desc: null
+  value: true
+corpus_meteor:
+  desc: null
+  value: true
+data_path:
+  desc: null
+  value: dataset/roc
+dataset:
+  desc: null
+  value: roc
+device:
+  desc: null
+  value: cpu
+disable_tqdm:
+  desc: null
+  value: false
+distinct_max_ngrams:
+  desc: null
+  value: 4
+do_test:
+  desc: null
+  value: true
+do_train:
+  desc: null
+  value: true
+do_valid:
+  desc: null
+  value: true
+efficient_kwargs:
+  desc: null
+  value: {}
+efficient_methods:
+  desc: null
+  value: []
+efficient_unfreeze_model:
+  desc: null
+  value: false
+epochs:
+  desc: null
+  value: 50
+eval_batch_size:
+  desc: null
+  value: 32
+filename:
+  desc: null
+  value: MVP-roc-2023-Feb-14_03-25-30
+find_unused_parameters:
+  desc: null
+  value: false
+generation_kwargs:
+  desc: null
+  value:
+    do_sample: true
+    num_beams: 1
+    temperature: 0.7
+    top_p: 0.9
+gpu_id:
+  desc: null
+  value: 0
+grad_clip:
+  desc: null
+  value: 0.1
+inter_distinct:
+  desc: null
+  value: true
+label_smoothing:
+  desc: null
+  value: 0.1
+learning_rate:
+  desc: null
+  value: 3.0e-05
+lightweight_tuning:
+  desc: null
+  value: true
+load_type:
+  desc: null
+  value: from_pretrained
+lower_evaluation:
+  desc: null
+  value: true
+meteor_type:
+  desc: null
+  value: pycocoevalcap
+metrics:
+  desc: null
+  value:
+  - bleu
+  - distinct
+metrics_for_best_model:
+  desc: null
+  value:
+  - bleu-1
+  - bleu-2
+model:
+  desc: null
+  value: MVP
+model_name:
+  desc: null
+  value: mvp
+model_path:
+  desc: null
+  value: RUCAIBox/mvp-story
+multiref_strategy:
+  desc: null
+  value: max
+optimizer:
+  desc: null
+  value: adamw
+optimizer_kwargs:
+  desc: null
+  value: {}
+prefix_prompt:
+  desc: null
+  value: 'Given the story title: '
+reproducibility:
+  desc: null
+  value: true
+resume_training:
+  desc: null
+  value: true
+rouge_max_ngrams:
+  desc: null
+  value: 2
+rouge_type:
+  desc: null
+  value: files2rouge
+saved_dir:
+  desc: null
+  value: saved/
+seed:
+  desc: null
+  value: 2020
+self_bleu_max_ngrams:
+  desc: null
+  value: 4
+smoothing_function:
+  desc: null
+  value: 0
+src_len:
+  desc: null
+  value: 32
+state:
+  desc: null
+  value: INFO
+stopping_steps:
+  desc: null
+  value: 2
+tgt_lang:
+  desc: null
+  value: en
+tgt_len:
+  desc: null
+  value: 128
+tokenizer_add_tokens:
+  desc: null
+  value: []
+tokenizer_kwargs:
+  desc: null
+  value:
+    use_fast: true
+train_batch_size:
+  desc: null
+  value: 48
+truncate:
+  desc: null
+  value: tail
+unique_max_ngrams:
+  desc: null
+  value: 4
+use_gpu:
+  desc: null
+  value: true
+valid_steps:
+  desc: null
+  value: 1
+valid_strategy:
+  desc: null
+  value: epoch
+wandb:
+  desc: null
+  value: online

@@ -1,0 +1,61 @@
+{
+    "os": "Linux-5.15.0-60-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-02-13T07:16:16.998077",
+    "startedAt": "2023-02-13T07:16:15.002503",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--model=BART",
+        "--dataset=samsum",
+        "--model_path=facebook/bart-base"
+    ],
+    "state": "running",
+    "program": "run_textbox.py",
+    "codePath": "run_textbox.py",
+    "git": {
+        "remote": "https://github.com/RUCAIBox/TextBox.git",
+        "commit": "73871ee6f2c57657e16c76ebc33de9e3cea2c7a4"
+    },
+    "email": null,
+    "root": "/home/sourabh/Desktop/Study/Semester 4/NNLG/Project/TextBox",
+    "host": "sourabh-PC",
+    "username": "sourabh",
+    "executable": "/home/sourabh/miniconda3/envs/TextBox/bin/python",
+    "cpu_count": 2,
+    "cpu_count_logical": 4,
+    "cpu_freq": {
+        "current": 2.24025,
+        "min": 400.0,
+        "max": 3100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 0.861,
+            "min": 400.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2.7,
+            "min": 400.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2.7,
+            "min": 400.0,
+            "max": 3100.0
+        },
+        {
+            "current": 2.7,
+            "min": 400.0,
+            "max": 3100.0
+        }
+    ],
+    "disk": {
+        "total": 251.94915771484375,
+        "used": 120.09808349609375
+    },
+    "memory": {
+        "total": 7.665554046630859
+    }
+}
