@@ -1,0 +1,2 @@
+[console_scripts]
+files2rouge = files2rouge:main
